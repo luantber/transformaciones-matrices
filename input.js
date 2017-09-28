@@ -15,25 +15,50 @@ var app = new Vue({
 
     ejecutar: function() {
     	this.puntos2 = [];
-    	for (var i = 0; i < this.puntos.length; i++) {
-    		this.puntos2.push(multiplicacion(this.mat, this.puntos[i]));
-    	}
+        	for (var i = 0; i < this.puntos.length; i++) {
+        		this.puntos2.push(multiplicacion(this.mat, this.puntos[i]));
+        	}
 
-		for (var i = 0; i < this.puntos.length; i++) {
-    		TESTER = document.getElementById('tester');
-		Plotly.plot( TESTER, [{
-		x: [0, this.puntos[i][0][0]],
-		y: [ 0, this.puntos[i][1][0]] }], {
-		margin: { t: 0 } } );
-    	}
-		
-    	for (var i = 0; i < this.puntos2.length; i++) {
-    		TESTER = document.getElementById('tester2');
-		Plotly.plot( TESTER, [{
-		x: [0, this.puntos2[i][0][0]],
-		y: [ 0, this.puntos2[i][1][0]] }], {
-		margin: { t: 0 } } );
-    	}
+            
+            var mix = new Array();
+            var miy = new Array();
+    		for (var i = 0; i < this.puntos.length; i++) {
+                mix.push(this.puntos[i][0][0]);
+                miy.push(this.puntos[i][1][0]);
+            }
+            var myPlot2 = document.getElementById('tester'),
+            x = mix,
+            y = miy,
+            data = [{x:x, y:y, type:'scatter',
+                     mode:'markers', marker:{size:10}
+                    }],
+            layout = {hovermode:'closest',
+                        xaxis:{range:[-3,15]},
+                        yaxis:{range:[-3,15]}
+        
+             };
+            Plotly.newPlot('tester', data, layout);
+
+            var mix2 = new Array();
+            var miy2 = new Array();
+
+        	for (var i = 0; i < this.puntos2.length; i++) {
+                mix2.push(this.puntos2[i][0][0]);
+                miy2.push(this.puntos2[i][1][0]);
+        	}
+            var myPlot = document.getElementById('tester2'),
+            x = mix2,
+            y = miy2,
+            data = [{x:x, y:y, type:'scatter',
+                     mode:'markers', marker:{size:10}
+                    }],
+            layout = {hovermode:'closest',
+                        xaxis:{range:[-3,15]},
+                        yaxis:{range:[-3,15]}
+        
+             };
+            Plotly.newPlot('tester2', data, layout);
+
 		},
 
     reset: function(){
