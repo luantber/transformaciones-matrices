@@ -10,6 +10,7 @@ var app = new Vue({
     addPunto: function () {
     	var nuevo = JSON.stringify(this.punto);
     	this.puntos.push(JSON.parse(nuevo ) );
+        this.ejecutar();
 
         this.ejecutar();
 
