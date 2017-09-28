@@ -11,6 +11,8 @@ var app = new Vue({
     	var nuevo = JSON.stringify(this.punto);
     	this.puntos.push(JSON.parse(nuevo ) );
 
+        this.ejecutar();
+
     },
 
     ejecutar: function() {
