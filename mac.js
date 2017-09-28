@@ -1,4 +1,4 @@
-	function size(mat){
+function size(mat){
 	m = mat.length;
 	n = mat[0].length;
 
@@ -19,6 +19,7 @@ function llenado(m,p) {
 	return matriz;
 }
 
+
 function multiplicacion(mat1,mat2) {
 	if (mat1[0].length != mat2.length) {
 		console.log("No se puede realizar esta operacion");
@@ -30,8 +31,7 @@ function multiplicacion(mat1,mat2) {
 		for (var i = 0; i < mat1.length; i++) {
 			for (var j = 0; j < mat2[0].length; j++) {
 				for (var k = 0; k < mat2.length; k++) {
-					matrx[i][j] = matrx[i][j]+ mat1[i][
-					k] * mat2[k][j] ;
+					matrx[i][j] = matrx[i][j] + math.eval(mat1[i][k]) * mat2[k][j] ;
 				}
 			}
 		}
