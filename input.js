@@ -25,15 +25,20 @@ var app = new Vue({
             
             var mix = new Array();
             var miy = new Array();
+            //mix.push(0);
+            //miy.push(0);
     		for (var i = 0; i < this.puntos.length; i++) {
+                mix.push(0);
+                miy.push(0);
                 mix.push(this.puntos[i][0][0]);
                 miy.push(this.puntos[i][1][0]);
             }
+
             var myPlot2 = document.getElementById('tester'),
             x = mix,
             y = miy,
             data = [{x:x, y:y, type:'scatter',
-                     mode:'markers', marker:{size:10}
+                     /*mode:'markers', marker:{size:10}*/
                     }],
             layout = {hovermode:'closest',
                         xaxis:{range:[-3,15]},
@@ -46,6 +51,8 @@ var app = new Vue({
             var miy2 = new Array();
 
         	for (var i = 0; i < this.puntos2.length; i++) {
+                mix2.push(0);
+                miy2.push(0);
                 mix2.push(this.puntos2[i][0][0]);
                 miy2.push(this.puntos2[i][1][0]);
         	}
@@ -53,7 +60,7 @@ var app = new Vue({
             x = mix2,
             y = miy2,
             data = [{x:x, y:y, type:'scatter',
-                     mode:'markers', marker:{size:10}
+                     /*mode:'markers', marker:{size:10}*/
                     }],
             layout = {hovermode:'closest',
                         xaxis:{range:[-3,15]},
